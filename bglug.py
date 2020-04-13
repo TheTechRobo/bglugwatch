@@ -16,7 +16,7 @@ menubar = Menu(main)
 main.title("BGLUGwatch")
 # DECLARING
 def uc(): #source www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
-    process = subprocess.Popen("git pull", stdout=subprocess.PIPE)
+    process = subprocess.Popen("git pull", shell=True, stdout=subprocess.PIPE)
     stdout = process.communicate()[0]
     if stdout == "Already up to date.":
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
