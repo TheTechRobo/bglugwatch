@@ -18,7 +18,7 @@ main.title("BGLUGwatch")
 def uc(): #source www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
     process = subprocess.Popen(['echo', '"Hello stdout"'], stdout=subprocess.PIPE)
     stdout = process.communicate()[0]
-    if stdout.lower() in "already up to date"():
+    if stdout.lower() in "already up to date":
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
     else:
         msg.showinfo("Updated", "Please restart BGLUGwatch.")
