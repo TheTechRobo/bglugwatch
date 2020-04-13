@@ -1,8 +1,3 @@
-'''
-BGLUGwatch is currently OUTDATED.
-Do not use until v.0.2-stable!
-Every version before that is purely for testing purposes.
-'''
 # bglugwatch 0.2
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
@@ -10,7 +5,7 @@ Every version before that is purely for testing purposes.
 # ***END OF FILE NOTICES***
 # import necessary modules
 import tkinter
-from tkinter import Button, Label, Text, messagebox, Menu, ttk, colorchooser
+from tkinter import Button, Label, Text, Menu, ttk
 from tkinter import messagebox as msg
 from tkinter import *
 import subprocess
@@ -23,14 +18,13 @@ main.title("BGLUGwatch")
 def uc(): #source www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
     process = subprocess.Popen(['echo', '"Hello stdout"'], stdout=subprocess.PIPE)
     stdout = process.communicate()[0]
-    if stdout == "Already up to date.":
+    if "already up to date" in stdout.lower():
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    else:
         msg.showinfo("Updated", "Please restart BGLUGwatch.")
         exit()
-    else:
-        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
 def hello():
     win = Toplevel()
-
     win.title('About BGLUG and the program')
     # create child window
     # display message
