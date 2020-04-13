@@ -2,7 +2,7 @@
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch from GNU GPLv3 or later without the explicit permission of Anthony Morassutti (TheTechRobo)
-# ***END OF FILE NOTICES***
+# END OF NOTICES
 # import necessary modules
 import tkinter
 from tkinter import Button, Label, Text, Menu, ttk
