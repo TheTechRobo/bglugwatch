@@ -15,13 +15,14 @@ main = tkinter.Tk()
 menubar = Menu(main)
 main.title("BGLUGwatch")
 # DECLARING
-def uc(): #source www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
-    process = subprocess.Popen("git pull", shell=True, stdout=subprocess.PIPE)
-    stdout = process.communicate()[0]
-    if stdout == "Already up to date.":
-        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
+    msg.showinfo("Attempting to update...", "Please wait while git does its job.")
+    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, shell=True)
+    response = output.communicate()
+    if response == (b'Already up to date.\n', None):
+        msg.showinfo("Already up to date.", "You can now use BGLUGwatch freely!")
     else:
-        msg.showinfo("Updated", "Please restart BGLUGwatch.")
+        msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
 def hello():
     win = Toplevel()
@@ -143,7 +144,6 @@ menubar.add_cascade(label="View", menu=viewmnu)
 # display the menu
 main.config(menu=menubar)
 # show message on launch
-msg.showinfo("Attempting to update...", "Please wait while git does its job.")
 uc()
 msg.showerror("No meeting in April, don't even try.", "There is no meeting in April due to the COVID-19 pandemic, staying safe is more important than computers!")
 main.mainloop()
