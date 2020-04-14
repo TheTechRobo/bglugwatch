@@ -26,16 +26,19 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
+def clist(winname):
+    scrollbar = Scrollbar(winname) #add scrollbar
+    scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
+    mylist = Listbox(winname, yscrollcommand=scrollbar.set)#create list
+    return mylist
 def hello():
     win = Toplevel()
     win.title('About BGLUG and the program')
     # create child window
     # display message
-    scrollbar = Scrollbar(win)
-    scrollbar.pack( side = RIGHT, fill = Y )
+    clist(win)
     def insert(string):
         mylist.insert(END, string)
-    mylist = Listbox(win, yscrollcommand = scrollbar.set ) #create list
     insert("The Bruce Grey Linux Users Group (BGLUG) was founded in 2000 to bring local Linux users together and to help newcomers to Linux.")
     insert("The group holds monthly meetings, gives technical presentations, distributes Linux CD-ROMs and hosts a web site, www.bglug.ca, which provides online support.")
     insert("The Bruce-Grey Linux Users Group is currently centered in Owen Sound, but has members scattered around Bruce and Grey counties. The group is freely open to everyone.")
@@ -57,30 +60,36 @@ def hello():
     # quit child window and return to root window
     # the button is optional here, simply use the corner x of the child window
     Button(win, text='OK', command=win.destroy).pack()
-    win.minsize(1200, 100)
+    winname.minsize(1200, 100)
 def ShowMessageOne(): #Message one (Jeff L)
     print("Showing message one, if anyone's listening......")
-    content = '''From: LP
-    I just got the word " All LUG Meetings at the United Way are
-Cancelled until further notice " Chris.
-
-Sent from ProtonMail <https://protonmail.ch>, encrypted email based in Switzerland.
-
-[Reply] From: TtR
-Well, I'm sad, but it was bound to happen. 
-Sent from TtR's iPhone 4
-
-[Reply] From: Brad Rodriguez
-I have updated the bglug.ca web page to show this.
-
-- Brad
-
-[Reply] From: Logan Streondj
-How About we meet on Jitsi (open source video chat)
-https://meet.jit.si/bglug'''
-    m1 = Toplevel()
-    m1.title(':(')
-    Label(m1, text=content).pack()
+    m1 = Toplevel() #create window
+    m1.title("Message 1")
+    mylist = clist(m1)
+    def insert(string):
+        mylist.insert(END, string)
+    insert("Message from LP")
+    insert("")
+    insert("I just got the word 'All LUG meetings at the United Way are cancelled until further notice' Chris.")
+    insert("Sent from ProtonMail <protonmail.ch>, encrypted email based in Switzerland.")
+    insert("")
+    insert("Reply from TtR")
+    insert("")
+    insert("Well, I'm sad, but it was bound to happen.")
+    insert("Sent from TtR's iPhone 4")
+    insert("")
+    insert("Reply from Brad Rodriguez")
+    insert("")
+    insert("I have updated the web page to show this.")
+    insert("")
+    insert("- Brad")
+    insert("")
+    insert("Reply from Logan Streondj")
+    insert("How about we meet on Jitsi (open-source video chat)")
+    insert("https://meet.jit.si/bglug")
+    Button(m1, text="OK", command=m1.destroy).pack()
+    m1.minsize(1000, 100)
+    mylist.pack(fill=BOTH)
 def showMessageTwo():
     print("Showing messages...")
     content = '''Under Construction'''
