@@ -1,7 +1,7 @@
-# bglugwatch 0.2.1
+# bglugwatch 0.2.2
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
-# copyleft states that it is illegal to switch from GNU GPLv3 or later without the explicit permission of Anthony Morassutti (TheTechRobo)
+# copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
 # END OF NOTICES
 # import necessary modules
 import tkinter
@@ -10,6 +10,7 @@ from tkinter import messagebox as msg
 from tkinter import *
 import subprocess
 from sys import exit
+import webbrowser
 # set up window
 main = tkinter.Tk()
 menubar = Menu(main)
@@ -20,6 +21,7 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, shell=True)
     response = output.communicate()
     if response == (b'Already up to date.\n', None):
+        print("Already up to date.")
         msg.showinfo("Already up to date.", "You can now use BGLUGwatch freely!")
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
@@ -48,7 +50,7 @@ def hello():
     insert("The bglug.ca domain was purchased in November 2002. After several months, the forums were added and then eventually our own mailing list.")
     insert("We are constantly evolving and gladly welcome any constructive feedback and suggestions. If you have any thoughts about the group, please let us know!")
     insert("")
-    insert("BGLUGwatch 0.2.1, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
+    insert("BGLUGwatch 0.2.2, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
     insert("Find it on GitHub at: www.github.com/thetechrobo/bglugwatch")
     insert("Thanks for using!")
     mylist.pack(fill = BOTH)
@@ -58,8 +60,7 @@ def hello():
     win.minsize(1200, 100)
 def ShowMessageOne(): #Message one (Jeff L)
     print("Showing message one, if anyone's listening......")
-    content = '''
-    Under Construction!'''
+    content = '''Under Construction!'''
     m1 = Toplevel()
     m1.title(':(')
     Label(m1, text=content).pack()
@@ -77,7 +78,9 @@ def subshelp():
     win = Toplevel()
     win.title('Under Construction')
     Label(win, text="Under construction").pack()
-# Tabs (src https://djangocentral.com/creating-tabbed-widget-with-python-for-gui-application/)
+def contrib():
+    webbrowser.open("https://github.com/thetechrobo/bglugwatch", new=1) # SOURCE: gist.github.com/RandomResourceWeb/93e887facdb98937ab5d260d1a0df270
+# Tabs (source www.djangocentral.com/creating-tabbed-widget-with-python-for-gui-application/)
 #Create Tab Control
 TAB_CONTROL = ttk.Notebook(main)
 #Tab1
@@ -95,14 +98,14 @@ TAB_CONTROL.add(TAB4, text='Update cache')
 TAB_CONTROL.pack(expand=1, fill="both")
 #For tab 1
 def moreinfomeeting():
+    # create child window
     more = Toplevel()
     more.title('No meeting in April')
-    # create child window
     # display message
     message = '''There is currently No Meeting in April due to the COVID-19 pandemic.
     Stay safe!'''
     Label(more, text=message).pack()
-    Button(more, text="O.K.", command=more.destroy)
+    Button(more, text="OK", command=more.destroy)
 ttk.Label(TAB1, text="(null)").pack()
 ttk.Button(TAB1, text="More info...", command=moreinfomeeting).pack()
 #For tab 2
@@ -115,7 +118,7 @@ def abtlin():
     ttk.Label(abtlin, text=linux).pack()
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
 #For tab3.
-ttk.Label(TAB3, text="3 NEWEST MAIL ON MAILING LIST").pack()
+ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
 ttk.Label(TAB3, text='''
 Under construction''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
@@ -141,6 +144,10 @@ viewmnu.add_command(label="Next meeting", command=moreinfomeeting)
 viewmnu.add_separator()
 viewmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="View", menu=viewmnu)
+utilmnu = Menu(menubar, tearoff=0)
+utilmnu.add_command(label="Update BGLUGwatch", command=uc)
+utilmnu.add_command(label="Contribute!", command=contrib)
+menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
 # show message on launch
