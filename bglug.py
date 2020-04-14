@@ -36,7 +36,7 @@ def hello():
     win.title('About BGLUG and the program')
     # create child window
     # display message
-    clist(win)
+    mylist = clist(win)
     def insert(string):
         mylist.insert(END, string)
     insert("The Bruce Grey Linux Users Group (BGLUG) was founded in 2000 to bring local Linux users together and to help newcomers to Linux.")
