@@ -60,7 +60,24 @@ def hello():
     win.minsize(1200, 100)
 def ShowMessageOne(): #Message one (Jeff L)
     print("Showing message one, if anyone's listening......")
-    content = '''Under Construction!'''
+    content = '''From: LP
+    I just got the word " All LUG Meetings at the United Way are
+Cancelled until further notice " Chris.
+
+Sent from ProtonMail <https://protonmail.ch>, encrypted email based in Switzerland.
+
+[Reply] From: TtR
+Well, I'm sad, but it was bound to happen. 
+Sent from TtR's iPhone 4
+
+[Reply] From: Brad Rodriguez
+I have updated the bglug.ca web page to show this.
+
+- Brad
+
+[Reply] From: Logan Streondj
+How About we meet on Jitsi (open source video chat)
+https://meet.jit.si/bglug'''
     m1 = Toplevel()
     m1.title(':(')
     Label(m1, text=content).pack()
@@ -119,8 +136,8 @@ def abtlin():
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
 #For tab3.
 ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
-ttk.Label(TAB3, text='''
-Under construction''').pack()
+ttk.Label(TAB3, text='''SUBJECT: All LUG Meetings are Cancelled until further notice !
+I just got the word...''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
 ttk.Label(TAB3, text='''Under Construction''').pack()
 ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
