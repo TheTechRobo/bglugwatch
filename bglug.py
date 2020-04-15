@@ -1,4 +1,4 @@
-# bglugwatch 0.2.3
+# bglugwatch 0.2.5
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
@@ -22,7 +22,10 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     response = output.communicate()
     if response == (b'Already up to date.\n', None):
         print("Already up to date.")
-        msg.showinfo("Already up to date.", "You can now use BGLUGwatch freely!")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif response == (b'Already up-to-date.\n', None):
+        print("Already up-to-date.")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
