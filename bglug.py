@@ -45,7 +45,8 @@ def hello():
     insert("We gather together for four main reasons:")
     insert("advocacy, education, support, and socializing.")
     insert("")
-    insert("Bruce Grey Linux User's Group was originally founded by Richard Court in early 2000. Richard Court, Brad Rodriguez, Andrew Howlett and Dan Eriksen have been key members since its creation.")
+    insert("Bruce Grey Linux User's Group was originally founded by Richard Court in early 2000. Richard Court, Brad Rodriguez, Andrew Howlett ")
+    insert("and Dan Eriksen have been key members since its creation.")
     insert("Richard has given up control of BGLUG to the current active maintainer, Dan Eriksen (site admin, LPIC-1 certified).")
     insert("A lot of work is still from the other members of the group, namely Andrew Howlett (meeting coordinator, LPIC-1 certified) who started our free CDs service.")
     insert("Over the last few years we have seen the group grow significantly in size. Nearly everyone has played a role in making the meetings interesting")
@@ -60,7 +61,7 @@ def hello():
     # quit child window and return to root window
     # the button is optional here, simply use the corner x of the child window
     Button(win, text='OK', command=win.destroy).pack()
-    win.minsize(1200, 100)
+    win.minsize(1100, 100)
 def ShowMessageOne(): #Message one (Jeff L)
     print("Showing message one, if anyone's listening......")
     m1 = Toplevel() #create window
