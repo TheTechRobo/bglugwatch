@@ -89,7 +89,7 @@ def ShowMessageOne(): #Message one (Jeff L)
     insert("How about we meet on Jitsi (open-source video chat)")
     insert("https://meet.jit.si/bglug")
     Button(m1, text="OK", command=m1.destroy).pack()
-    m1.minsize(1000, 100)
+    m1.minsize(750, 100)
     mylist.pack(fill=BOTH)
 def showMessageTwo():
     print("Showing messages...")
