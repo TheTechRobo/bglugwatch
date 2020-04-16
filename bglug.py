@@ -159,7 +159,7 @@ ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
 ttk.Label(TAB3, text='''SUBJECT: All LUG Meetings are Cancelled until further notice !
 I just got the word...''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
-ttk.Label(TAB3, text='''Under Construction''').pack()
+ttk.Label(TAB3, text='''SUBJECT: I hope everyone is well!''').pack()
 ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
 ttk.Label(TAB3, text='''
 For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
