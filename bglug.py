@@ -58,7 +58,7 @@ def hello():
     insert("We are constantly evolving and gladly welcome any constructive feedback and suggestions. If you have any thoughts about the group, please let us know!")
     insert("")
     insert("BGLUGwatch 0.2.5, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
-    insert("Find it on GitHub at: www.github.com/thetechrobo/bglugwatch")
+    insert("Find me on GitHub at: www.github.com/thetechrobo/bglugwatch")
     insert("Thanks for using!")
     mylist.pack(fill = BOTH)
     # quit child window and return to root window
@@ -156,10 +156,13 @@ def abtlin():
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
 #For tab3.
 ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
-ttk.Label(TAB3, text='''SUBJECT: All LUG Meetings are Cancelled until further notice !
-I just got the word...''').pack()
+ttk.Label(TAB3, text='''FROM: LP
+SUBJECT: All LUG Meetings are Cancelled until further notice !
+"I just got the word..."''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
-ttk.Label(TAB3, text='''SUBJECT: I hope everyone is well!''').pack()
+ttk.Label(TAB3, text='''FROM: LP
+SUBJECT: I hope everyone is well!
+"Hi all,..."''').pack()
 ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
 ttk.Label(TAB3, text='''
 For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
@@ -184,6 +187,8 @@ menubar.add_cascade(label="View", menu=viewmnu)
 utilmnu = Menu(menubar, tearoff=0)
 utilmnu.add_command(label="Update BGLUGwatch", command=uc)
 utilmnu.add_command(label="Contribute!", command=contrib)
+utilmnu.add_seperator()
+utilmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
