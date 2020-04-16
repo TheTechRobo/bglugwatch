@@ -57,7 +57,7 @@ def hello():
     insert("The bglug.ca domain was purchased in November 2002. After several months, the forums were added and then eventually our own mailing list.")
     insert("We are constantly evolving and gladly welcome any constructive feedback and suggestions. If you have any thoughts about the group, please let us know!")
     insert("")
-    insert("BGLUGwatch 0.2.3, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
+    insert("BGLUGwatch 0.2.5, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
     insert("Find it on GitHub at: www.github.com/thetechrobo/bglugwatch")
     insert("Thanks for using!")
     mylist.pack(fill = BOTH)
@@ -65,11 +65,11 @@ def hello():
     # the button is optional here, simply use the corner x of the child window
     Button(win, text='OK', command=win.destroy).pack()
     win.minsize(1100, 100)
-def ShowMessageOne(): #Message one (Jeff L)
+def showMessageTwo(): #Message two
     print("Showing message one, if anyone's listening......")
-    m1 = Toplevel() #create window
-    m1.title("Message 1")
-    mylist = clist(m1)
+    m2 = Toplevel() #create window
+    m2.title("Message 1")
+    mylist = clist(m2)
     def insert(string):
         mylist.insert(END, string)
     insert("Message from LP")
@@ -91,19 +91,17 @@ def ShowMessageOne(): #Message one (Jeff L)
     insert("Reply from Logan Streondj")
     insert("How about we meet on Jitsi (open-source video chat)")
     insert("https://meet.jit.si/bglug")
-    Button(m1, text="OK", command=m1.destroy).pack()
-    m1.minsize(750, 100)
+    Button(m1, text="OK", command=m2.destroy).pack()
+    m2.minsize(750, 100)
     mylist.pack(fill=BOTH)
-def showMessageTwo():
+def showMessageOne(): #message one
     print("Showing messages...")
-    content = '''Under Construction'''
-    m2 = Toplevel()
-    m2.title(':(')
-    Label(m2, text=content).pack()
-    #Label(m2, text='''
-    #[REPLY]
-    #''').pack()
-    Label(m2, text=contentReply).pack()
+    m1 = Toplevel()
+    mylist = clist(m1)
+    def insert(string):
+        mylist.insert(END, string)
+    insert("Message from LP")
+    m1.title(':(')
 def subshelp():
     win = Toplevel()
     win.title('Under Construction')
