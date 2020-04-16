@@ -1,4 +1,4 @@
-# bglugwatch 0.2.3
+# bglugwatch 0.2.5
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
@@ -22,7 +22,10 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     response = output.communicate()
     if response == (b'Already up to date.\n', None):
         print("Already up to date.")
-        msg.showinfo("Already up to date.", "You can now use BGLUGwatch freely!")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif response == (b'Already up-to-date.\n', None):
+        print("Already up-to-date.")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
@@ -54,19 +57,19 @@ def hello():
     insert("The bglug.ca domain was purchased in November 2002. After several months, the forums were added and then eventually our own mailing list.")
     insert("We are constantly evolving and gladly welcome any constructive feedback and suggestions. If you have any thoughts about the group, please let us know!")
     insert("")
-    insert("BGLUGwatch 0.2.3, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
-    insert("Find it on GitHub at: www.github.com/thetechrobo/bglugwatch")
+    insert("BGLUGwatch 0.2.5, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
+    insert("Find me on GitHub at: www.github.com/thetechrobo/bglugwatch")
     insert("Thanks for using!")
     mylist.pack(fill = BOTH)
     # quit child window and return to root window
     # the button is optional here, simply use the corner x of the child window
     Button(win, text='OK', command=win.destroy).pack()
     win.minsize(1100, 100)
-def ShowMessageOne(): #Message one (Jeff L)
+def showMessageTwo(): #Message two
     print("Showing message one, if anyone's listening......")
-    m1 = Toplevel() #create window
-    m1.title("Message 1")
-    mylist = clist(m1)
+    m2 = Toplevel() #create window
+    m2.title("Message 1")
+    mylist = clist(m2)
     def insert(string):
         mylist.insert(END, string)
     insert("Message from LP")
@@ -88,19 +91,26 @@ def ShowMessageOne(): #Message one (Jeff L)
     insert("Reply from Logan Streondj")
     insert("How about we meet on Jitsi (open-source video chat)")
     insert("https://meet.jit.si/bglug")
-    Button(m1, text="OK", command=m1.destroy).pack()
-    m1.minsize(750, 100)
+    Button(m2, text="OK", command=m2.destroy).pack()
+    m2.minsize(750, 100)
     mylist.pack(fill=BOTH)
-def showMessageTwo():
+def ShowMessageOne(): #message one
     print("Showing messages...")
-    content = '''Under Construction'''
-    m2 = Toplevel()
-    m2.title(':(')
-    Label(m2, text=content).pack()
-    #Label(m2, text='''
-    #[REPLY]
-    #''').pack()
-    Label(m2, text=contentReply).pack()
+    m1 = Toplevel()
+    mylist = clist(m1)
+    def insert(string):
+        mylist.insert(END, string)
+    insert("Message from LP")
+    insert("")
+    insert("Hi all, ")
+    insert("I hope everyone is well, I have been thinking about you all.")
+    insert("Chris")
+    insert("")
+    insert("Sent from ProtonMail, encrypted email based in Switzerland.")
+    m1.title(':(')
+    mylist.pack(fill=BOTH)
+    Button(m1, text="OK", command=m1.destroy).pack()
+    m1.minsize(400, 250)
 def subshelp():
     win = Toplevel()
     win.title('Under Construction')
@@ -143,13 +153,38 @@ def abtlin():
     thousands of volunteer developers around the world. It is distributed under the GNU General Public License which means the source code is
     freely available to everyone. Linux has powered much of the Internet for years, and is now available with many applications for "desktop" computer users.'''
     ttk.Label(abtlin, text=linux).pack()
+def article1():
+    article1 = Toplevel()
+    article1.title("Choosing a suitable email client")
+    mylist = clist(article1)
+    def insert(string):
+        mylist.insert(END, text=string)
+    insert("Under Construction")
+    Button(article1, text="OK", command=article1.destroy).pack()
+def article2():
+    article2 = Toplevel()
+    article2.title("Win4Lin review")
+    mylist = clist(article2)
+    def insert(string):
+        mylist.insert(END, text=string)
+    Button(article1, text="OK", command=article1.destroy).pack()
+def Articles():
+    articles = Toplevel()
+    articles.title('Articles')
+    Label(articles, text="Select an article.")
+    Button(articles, text="December 23, 2002: Choosing a suitable mail client.", command=article1).pack()
+    Button(articles, text="February 11, 2003: Win4Lin review", command=article2).pack()
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
+ttk.Button(TAB2, text="Archived articles", command=Articles)
 #For tab3.
 ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
-ttk.Label(TAB3, text='''SUBJECT: All LUG Meetings are Cancelled until further notice !
-I just got the word...''').pack()
+ttk.Label(TAB3, text='''FROM: LP
+SUBJECT: All LUG Meetings are Cancelled until further notice !
+"I just got the word..."''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
-ttk.Label(TAB3, text='''Under Construction''').pack()
+ttk.Label(TAB3, text='''FROM: LP
+SUBJECT: I hope everyone is well!
+"Hi all,..."''').pack()
 ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
 ttk.Label(TAB3, text='''
 For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
@@ -174,6 +209,8 @@ menubar.add_cascade(label="View", menu=viewmnu)
 utilmnu = Menu(menubar, tearoff=0)
 utilmnu.add_command(label="Update BGLUGwatch", command=uc)
 utilmnu.add_command(label="Contribute!", command=contrib)
+utilmnu.add_seperator()
+utilmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
