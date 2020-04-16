@@ -91,17 +91,26 @@ def showMessageTwo(): #Message two
     insert("Reply from Logan Streondj")
     insert("How about we meet on Jitsi (open-source video chat)")
     insert("https://meet.jit.si/bglug")
-    Button(m1, text="OK", command=m2.destroy).pack()
+    Button(m2, text="OK", command=m2.destroy).pack()
     m2.minsize(750, 100)
     mylist.pack(fill=BOTH)
-def showMessageOne(): #message one
+def ShowMessageOne(): #message one
     print("Showing messages...")
     m1 = Toplevel()
     mylist = clist(m1)
     def insert(string):
         mylist.insert(END, string)
     insert("Message from LP")
+    insert("")
+    insert("Hi all, ")
+    insert("I hope everyone is well, I have been thinking about you all.")
+    insert("Chris")
+    insert("")
+    insert("Sent from ProtonMail, encrypted email based in Switzerland.")
     m1.title(':(')
+    mylist.pack(fill=BOTH)
+    Button(m1, text="OK", command=m1.destroy).pack()
+    m1.minsize(400, 250)
 def subshelp():
     win = Toplevel()
     win.title('Under Construction')
