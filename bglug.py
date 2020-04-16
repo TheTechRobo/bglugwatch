@@ -153,7 +153,14 @@ def abtlin():
     thousands of volunteer developers around the world. It is distributed under the GNU General Public License which means the source code is
     freely available to everyone. Linux has powered much of the Internet for years, and is now available with many applications for "desktop" computer users.'''
     ttk.Label(abtlin, text=linux).pack()
+def Articles():
+    articles = Toplevel()
+    articles.title('Articles')
+    Label(articles, text="Select an article.")
+    Button(articles, text="December 23, 2002: Choosing a suitable mail client.", command=Articles).pack() #Just temporarily.
+    Button(articles, text="February 11, 2003: Win4Lin review", command=Articles) #Just temporarily.
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
+ttk.Button(TAB2, text="Archived articles", command=Articles)
 #For tab3.
 ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
 ttk.Label(TAB3, text='''FROM: LP
