@@ -246,7 +246,7 @@ menubar.add_cascade(label="View", menu=viewmnu)
 utilmnu = Menu(menubar, tearoff=0)
 utilmnu.add_command(label="Update BGLUGwatch", command=uc)
 utilmnu.add_command(label="Contribute!", command=contrib)
-utilmnu.add_seperator()
+utilmnu.add_separator()
 utilmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
