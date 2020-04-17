@@ -1,3 +1,4 @@
+# STOP USING THIS OLD REPO, FIND THE NEW ONE [HERE](HTTPS://GITHUB.COM/THETECHROBO/BGLUGWATCH-CLEANSLATE)
 # bglugwatch
 Tkinter program for easy viewing of BGLUG's website
 
