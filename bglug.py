@@ -1,4 +1,4 @@
-# bglugwatch 0.2.5
+# bglugwatch 0.2.6
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
@@ -28,7 +28,7 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
     elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
-    elif response == (b'', b'fatal: not a git repository: .git\n')
+    elif response == (b'', b'fatal: not a git repository: .git\n'):
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
@@ -61,7 +61,7 @@ def hello():
     insert("The bglug.ca domain was purchased in November 2002. After several months, the forums were added and then eventually our own mailing list.")
     insert("We are constantly evolving and gladly welcome any constructive feedback and suggestions. If you have any thoughts about the group, please let us know!")
     insert("")
-    insert("BGLUGwatch 0.2.5, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
+    insert("BGLUGwatch 0.2.6, copyright (c) Ittussarom Retals Mail Ynohtna. Licensed under the GNU GPLv3.")
     insert("Find me on GitHub at: www.github.com/thetechrobo/bglugwatch")
     insert("Thanks for using!")
     mylist.pack(fill = BOTH)
