@@ -73,7 +73,7 @@ def hello():
     Button(win, text='OK', command=win.destroy).pack()
     win.minsize(1100, 100)
 def showMessageTwo(): #Message two
-    print("Showing message one, if anyone's listening......")
+    print("Showing message two, if anyone's listening......")
     m2 = Toplevel() #create window
     m2.title("Message 1")
     mylist = clist(m2)
@@ -165,7 +165,7 @@ def article1():
     article1.title("Choosing a suitable email client")
     mylist = clist(article1)
     def insert(string):
-        mylist.insert(END, text=string)
+        mylist.insert(END, string)
     insert("Well, for better or worse, I've chosen an email client. You'll recall that I had narrowed it down to four")
     insert("possibles, based upon the rather modest requirements that the client support multiple email accounts and")
     insert("have some filtering capabilities. So I installed all four, and I started looking at them, keeping in mind the")
@@ -204,7 +204,7 @@ def article2():
     article2.title("Win4Lin review")
     mylist = clist(article2)
     def insert(string):
-        mylist.insert(END, text=string)
+        mylist.insert(END, string)
     insert("...")
     mylist.pack(fill=BOTH)
     Button(article1, text="OK", command=article1.destroy).pack()
@@ -215,7 +215,7 @@ def Articles():
     Button(articles, text="December 23, 2002: Choosing a suitable mail client.", command=article1).pack()
     Button(articles, text="February 11, 2003: Win4Lin review", command=article2).pack()
 ttk.Button(TAB2, text="About Linux", command=abtlin).pack()
-ttk.Button(TAB2, text="Archived articles", command=Articles)
+ttk.Button(TAB2, text="Archived articles", command=Articles).pack()
 #For tab3.
 ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
 ttk.Label(TAB3, text='''FROM: LP
