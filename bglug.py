@@ -167,7 +167,7 @@ def article1():
     insert("possibles, based upon the rather modest requirements that the client support multiple email accounts and")
     insert("have some filtering capabilities. So I installed all four, and I started looking at them, keeping in mind the")
     insert("features of Eudora that I use every day or really like. ")
-    Button(article1, text="View truncated spec list", command=pass).pack()
+    #Button(article1, text="View truncated spec list", command=showspec1).pack()
     insert("==================================COMMENTARY========================================================")
     insert("")
     insert("Evolution has the most flexible filtering -- except that Balsa allows the use of an external program as a")
