@@ -18,7 +18,7 @@ main.title("BGLUGwatch")
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
-    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, shell=True)
+    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     response = output.communicate()
     if response == (b'Already up to date.\n', None):
         print("Already up to date.")
@@ -26,6 +26,10 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     elif response == (b'Already up-to-date.\n', None):
         print("Already up-to-date.")
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
+        msg.showerror("Error!", "There was an error updating BGLUGwatch.")
+    elif response == (b'', b'fatal: not a git repository: .git\n')
+        msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
