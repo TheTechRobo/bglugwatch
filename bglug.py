@@ -255,6 +255,7 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
 # show message on launch
+msg.showinfo("Old version of BGLUGwatch", "You are using a discontinued branch of BGLUGwatch. Please update it to the new repo (github.com/thetechrobo/bglugwatch-cleanslate).")
 uc()
 msg.showerror("No meeting in April, don't even try.", "There is no meeting in April due to the COVID-19 pandemic, staying safe is more important than computers!")
 main.mainloop()
