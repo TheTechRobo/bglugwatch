@@ -1,4 +1,5 @@
 # STOP USING THIS OLD REPO, FIND THE NEW ONE [HERE](HTTPS://GITHUB.COM/THETECHROBO/BGLUGWATCH-CLEANSLATE)
+Just moved to TtRchives. That means DONT USE IT
 # bglugwatch
 Tkinter program for easy viewing of BGLUG's website
 
